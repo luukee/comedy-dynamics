@@ -20,15 +20,12 @@ get_header(); ?>
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
-
 		<?php if (have_posts()) : ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while (have_posts()) : the_post(); ?>
-				
-					<?php get_template_part('template-parts/content', get_post_format());?>
 
-				<?php endif; ?>
+				<?php get_template_part('template-parts/content', get_post_format()); ?>
 			<?php endwhile; ?>
 
 			<?php else : ?>
@@ -49,8 +46,34 @@ get_header(); ?>
 			<?php endif; ?>
 
 		</main>
+		<?php
+        // // your taxonomy name
+        // $tax = 'media';
+        //
+        // // get the terms of taxonomy
+        // $terms = get_terms($tax, $args = array(
+        //     'hide_empty' => true, // do not hide empty terms
+        // ));
+        //
+        // // loop through all terms
+        // foreach ($terms as $term) {
+        //
+        //     // Get the term link
+        //     $term_link = get_term_link($term);
+        //
+        //     if ($term->count > 0) {
+        //         // display link to term archive
+        //         echo '<a href="' . esc_url($term_link) . '">' . $term->name .'</a>';
+        //     } elseif ($term->count !== 0) {
+        //         // display name
+        //         echo '' . $term->name . ' ';
+        //     }
+        // }
+        ?>
 
 	</div>
 </div>
+
+
 
 <?php get_footer();

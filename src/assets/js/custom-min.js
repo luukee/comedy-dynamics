@@ -1,0 +1,1 @@
+jQuery(function($){$("#filter").submit(function(){var t=$("#filter");return $.ajax({url:t.attr("action"),data:t.serialize(),type:t.attr("method"),beforeSend:function(e){t.find("button").text("Processing...")},success:function(e){t.find("button").text("Apply filter"),$("#response").html(e)}}),!1})});

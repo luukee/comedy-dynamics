@@ -20,15 +20,24 @@ get_header(); ?>
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content">
+			
+			<?php if (has_term('film', 'distribution')) : ?>
+				<h1>Film</h1>
+			<?php elseif (has_term('stand-up', 'distribution')) : ?>
+				<h1>Stand Up</h1>
+			<?php elseif (has_term('album', 'distribution')) : ?>
+				<h1>Album</h1>
+			<?php elseif (has_term('series', 'distribution')) : ?>
+				<h1>Series</h1>
+			<?php else : ?>
+				<h4>didnt work</h4>
+			<?php endif; ?>
 
 		<?php if (have_posts()) : ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while (have_posts()) : the_post(); ?>
-				
-					<?php get_template_part('template-parts/content', get_post_format());?>
-
-				<?php endif; ?>
+				<?php get_template_part('template-parts/content', get_post_format()); ?>
 			<?php endwhile; ?>
 
 			<?php else : ?>
@@ -49,7 +58,6 @@ get_header(); ?>
 			<?php endif; ?>
 
 		</main>
-
 	</div>
 </div>
 
